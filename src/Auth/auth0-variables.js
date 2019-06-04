@@ -8,7 +8,7 @@ const dev = {
 const prod = {
   domain: 'ruletest.eu.auth0.com',
   clientID: '06ODevrf60QH8cYZ9ve6DkoboNIwcmBE',
-  callbackUrl: 'http://auth0rulestest.netlify.com/callback',
+  callbackUrl: 'https://auth0rulestest.netlify.com/callback',
   audience: 'https://ruletest.com',
 }
 
