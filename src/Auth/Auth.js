@@ -12,7 +12,8 @@ export default class Auth {
     clientID: AUTH_CONFIG.clientID,
     redirectUri: AUTH_CONFIG.callbackUrl,
     responseType: 'token id_token',
-    scope: 'openid'
+    scope: 'openid',
+    audience: AUTH_CONFIG.audience,
   });
 
   constructor() {
@@ -50,8 +51,12 @@ export default class Auth {
   }
 
   setSession(authResult) {
+
     // Set isLoggedIn flag in localStorage
     localStorage.setItem('isLoggedIn', 'true');
+
+    localStorage.setItem('idToken', authResult.idToken);
+    localStorage.setItem('accessToken', authResult.accessToken);
 
     // Set the time that the access token will expire at
     let expiresAt = (authResult.expiresIn * 1000) + new Date().getTime();
